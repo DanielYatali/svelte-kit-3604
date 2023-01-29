@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {
+		Avatar,
 		Navbar,
 		NavBrand,
 		NavLi,
@@ -15,6 +16,7 @@
 		FooterLinkGroup,
 		FooterLink,
 		Timeline,
+		Tooltip,
 		TimelineItem,
 		Card,
 		Button,
@@ -24,6 +26,7 @@
 	} from 'flowbite-svelte';
 	import ProductCard from '../components/ProductCard.svelte';
 
+	let placement='bottom';
 	const images = [
 		{
 			id: 0,
@@ -84,6 +87,11 @@
 			<DropdownDivider />
 			<DropdownItem>Sign out</DropdownItem>
 		</Dropdown>
+		<NavLi href="/account">
+			<Avatar data-name="Account Settings" rounded border size="xs" />
+			<Tooltip triggeredBy="[data-name]" {placement} on:show={e => name = e.target.dataset.name}>{name}</Tooltip>
+			
+		</NavLi>
 	</NavUl>
 </Navbar>
 
