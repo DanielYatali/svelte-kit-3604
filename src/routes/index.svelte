@@ -16,14 +16,19 @@
 		FooterLink,
 		Timeline,
 		TimelineItem,
-		Card
+		Card,
+		Button,
+		Rating,
+		Badge,
+		Progressbar
 	} from 'flowbite-svelte';
+	import ProductCard from '../components/ProductCard.svelte';
 
 	const images = [
 		{
 			id: 0,
 			name: 'Cosmic timetraveler',
-			imgurl: 'https://picsum.photos/2000/800',
+			imgurl: 'bg.webp',
 			attribution: 'cosmic-timetraveler-pYyOZ8q7AII-unsplash.com'
 		},
 		{
@@ -33,18 +38,37 @@
 			attribution: 'cosmic-timetraveler-pYyOZ8q7AII-unsplash.com'
 		}
 	];
+	const nutritions = [
+		{
+			id: 0,
+			name: 'Calories',
+			value: '43',
+			unit: 'kcal',
+			color: 'red'
+		},
+		{
+			id: 1,
+			name: 'Sugar',
+			value: '20',
+			unit: 'g',
+			color: 'yellow'
+		},
+		{
+			id: 3,
+			name: 'Carbs',
+			value: '20',
+			unit: 'g',
+			color: 'green'
+		}
+	];
 </script>
 
 <Navbar let:hidden let:toggle>
 	<NavBrand href="/">
-		<img
-			src="https://flowbite.com/docs/images/logo.svg"
-			class="mr-3 h-6 sm:h-9"
-			alt="Flowbite Logo"
-		/>
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+		<img src="carigro-logo.webp" class="mr-3 h-6 sm:h-9 p-0" alt="Carigo Logo" />
+		<!-- <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
 			Flowbite
-		</span>
+		</span> -->
 	</NavBrand>
 	<NavHamburger on:click={toggle} />
 	<NavUl {hidden}>
@@ -63,14 +87,25 @@
 	</NavUl>
 </Navbar>
 
-<CarouselTransition
-	{images}
-	transitionType="fly"
-	transitionParams={{ delay: 250, duration: 300, x: 100 }}
-	showCaptions={false}
-	showThumbs={false}
-/>
-<div class="grid grid-cols-2 gap-5 p-5">
+<div class="relative">
+	<img src="bg.webp" alt="" />
+	<div
+		class=" text-center dark:text-white text-primary absolute top-1/2 left-1/2 text-2xl font-semibol -translate-x-1/2 -translate-y-1/2 sm:text-4xl lg:text-7xl"
+	>
+		<div>
+			<h1 class="font-extrabold">
+				Welcome to Cari<span class="text-orange-400">g</span>ro
+			</h1>
+			<p>some more text</p>
+			<div class="flex justify-center">
+				<button class="text-white text-base lg:text-3xl bg-primary-light p-2  m-2 rounded-xl"
+					>Join Today</button
+				>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="grid grid-cols-2 gap-5 p-5">
 	<div class="col-span-1">
 		<Card padding="none" size="xl" class="grid md:grid-cols-2">
 			<figure
@@ -251,9 +286,18 @@
 			</TimelineItem>
 		</Timeline>
 	</div>
+</div> -->
+<h1 class="text-primary text-center text-3xl m-2 font-semibold">Top Products</h1>
+<div class="flex items-center justify-center m-5">
+	<div class="grid sm:grid-cols-2 gap-7 lg:grid-cols-3 xl:grid-cols-4 ">
+		<ProductCard rating="4" image="orange.webp" {nutritions} />
+		<ProductCard rating="4" image="orange.webp" {nutritions} />
+		<ProductCard rating="4" image="orange.webp" {nutritions} />
+		<ProductCard rating="4" image="orange.webp" {nutritions} />
+	</div>
 </div>
 <Footer>
-	<FooterCopyright href="/" by="DSS™" year={2023} />
+	<FooterCopyright href="/" by="Carigro™" year={2023} />
 	<FooterLinkGroup
 		ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
 	>

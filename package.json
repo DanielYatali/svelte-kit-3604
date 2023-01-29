@@ -1,15 +1,7 @@
 {
-	"name": "flowbite-svelte-starter",
+	"name": "carigro",
 	"version": "0.1.2",
-	"description": "Flowbite-Svelte starter kit",
-	"author": {
-		"name": "Shinichi Okada",
-		"email": "connect@codewithshin.com",
-		"url": "https://blog.codewithshin.com"
-	},
-	"bugs": "https://github.com/shinokada/flowbite-svelte-starter/issues",
-	"homepage": "https://github.com/shinokada/flowbite-svelte-starter",
-	"license": "MIT",
+	"description": "carigro",
 	"scripts": {
 		"dev": "vite dev --host --port 3000",
 		"build": "vite build",
@@ -61,6 +53,6 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/shinokada/flowbite-svelte-starter.git"
+		"url": "https://github.com/DSS-3604/svelte-kit-3604"
 	}
 }
