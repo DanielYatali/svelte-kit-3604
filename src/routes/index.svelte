@@ -23,11 +23,15 @@
 		Rating,
 		Badge,
 		Progressbar,
-		ToolbarButton
+		ToolbarButton,
+		Modal,
+		Label,
+		Input,
+		Checkbox
 	} from 'flowbite-svelte';
 	import SellerCard from '../components/SellerCard.svelte';
 	import ProductCard from '../components/ProductCard.svelte';
-
+	let formModal = false;
 	const images = [
 		{
 			id: 0,
@@ -78,7 +82,9 @@
 			</h1>
 			<p>some more text</p>
 			<div class="flex justify-center">
-				<button class="text-white text-base lg:text-3xl bg-primary-light p-2 lg:p-4  m-2 rounded-xl"
+				<button
+					on:click={() => (formModal = true)}
+					class="text-white text-base lg:text-3xl bg-primary-light p-2 lg:p-4  m-2 rounded-xl"
 					>Join Today</button
 				>
 			</div>
@@ -136,6 +142,31 @@
 		/>
 	</div>
 </div>
+<Modal bind:open={formModal} size="xs" autoclose={false} class="w-full">
+	<form class="flex flex-col space-y-6" action="#">
+		<h3 class="text-xl font-medium text-gray-900 dark:text-white p-0">Sign in to our platform</h3>
+		<Label class="space-y-2">
+			<span>Email</span>
+			<Input type="email" name="email" placeholder="name@company.com" required />
+		</Label>
+		<Label class="space-y-2">
+			<span>Your password</span>
+			<Input type="password" name="password" placeholder="•••••" required />
+		</Label>
+		<div class="flex items-start">
+			<Checkbox>Remember me</Checkbox>
+			<a href="/" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
+				>Lost password?</a
+			>
+		</div>
+		<Button type="submit" class="w-full1">Login to your account</Button>
+		<div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+			Not registered? <a href="/" class="text-blue-700 hover:underline dark:text-blue-500"
+				>Create account</a
+			>
+		</div>
+	</form>
+</Modal>
 
 <!-- <Card padding="none" class="w-80 text-center shadow-xl">
 	<div class="flex flex-col items-center p-4">
